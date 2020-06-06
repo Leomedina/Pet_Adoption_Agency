@@ -1,7 +1,23 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
 
-{% block content %}
-
-<h1 class="display-1">Pets</h1>
+<h1 class="display-3 text-center">Pets</h1>
+<div class="container text-center">
+  {% for pet in pets %}
+  <div class="card" style="width: 20rem;">
+    <img src='{{pet.photo_url}}' class="card-img-top">
+    <div class="card-body">
+      <div class="card-title">
+        {{pet.name}}
+      </div>
+      <div class="card-subtitle mb-2 text-muted">
+        {{pet.species}} - {{pet.age}}
+      </div>
+      Notes: {{pet.notes}} 
+      Available:
+      {{pet.available}}
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
 {% endblock%}

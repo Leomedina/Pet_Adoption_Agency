@@ -1,10 +1,11 @@
-from flask_alchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
 def connect_db(app):
     db.app = app
     db.init_app(app)
+
 
 class Pet(db.Model):
     """PET MODEL"""
@@ -20,5 +21,4 @@ class Pet(db.Model):
     notes = db.Column(db.Text)
     available = db.Column(db.Boolean,
                 nullable = False,
-                default = True)
-    
+                default = True) 
